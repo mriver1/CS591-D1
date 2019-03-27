@@ -15,8 +15,8 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <App>
-        <Route exact path='/' component={Home}/>
-        <Route exact path='/current-weather' component={CurrentWeather}/>
+        <Route exact path='/' component={HW3}/>
+        <Route exact path='/current-weather' component={HW3Weather}/>
         <Route exact path='/error' component={ErrorDisplay}/>
       </App>
     </Router>
