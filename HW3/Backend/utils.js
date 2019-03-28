@@ -1,5 +1,7 @@
+const config = require('./modules');
+
 const url = require('url');
-const config = require('./config');
+
 
 module.exports = {
   getURL: function(locationConfigType, locationConfigData) {

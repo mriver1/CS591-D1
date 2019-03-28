@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
-//import { WeatherCardError, Loader } from '../Components/index';
 
-class CurrentWeather extends Component {
+
+class Weather extends Component {
   constructor(props) {
     super(props);
 
@@ -12,8 +12,8 @@ class CurrentWeather extends Component {
   }
 
   render() {
-    const { loading, loaded, error, currentTemp, currentConditionDescription,
-      humidity, wind, cityName, weatherId } = this.props;
+    const {loaded, error, Temp, ConditionDescription,
+      humidity, wind } = this.props;
 
     if (error) {
       return (
@@ -27,17 +27,17 @@ class CurrentWeather extends Component {
         { loaded &&
           (
             <div>
-              <div className='homeBtn'>
+              <div className='Home'>
                 <Link to='/'><button>Home</button></Link>
               </div>
               <div >
                 <div >
                   
-                  <div className='conditionsOverview'>
-                    <p>{currentTemp} F</p>
-                    <p>{currentConditionDescription}</p>
+                  <div className='Temp'>
+                    <p>{Temp} F</p>
+                    <p>{ConditionDescription}</p>
                   </div>
-                  <div className='conditionDetails'>
+                  <div className='HumidityAndWind'>
                     <p>Humidity: {humidity}% </p>
                     <p>Wind Speed: {wind} mph </p>
                   </div>
@@ -56,7 +56,6 @@ const setWeather = function(state) {
 
   return {
     ...state,
-    loading: loading,
     loaded: loaded,
     error: error,
     cityName: name,
@@ -64,9 +63,9 @@ const setWeather = function(state) {
     humidity: main && main.humidity,
     wind: wind && wind.speed,
     windDirection: wind && wind.deg,
-    currentTemp: main && Math.round(main.temp),
-    currentCondition: weather && weather[0].main,
-    currentConditionDescription: weather && weather[0].description,
+    Temp: main && Math.round(main.temp),
+    Condition: weather && weather[0].main,
+    ConditionDescription: weather && weather[0].description,
   };
 };
 
@@ -80,4 +79,4 @@ const getWeather = function(dispatch) {
   };
 };
 
-export default connect(setWeather, getWeather)(CurrentWeather);
+export default connect(setWeather, getWeather)(Weather);

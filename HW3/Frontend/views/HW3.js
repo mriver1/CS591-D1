@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { setLocationTextInput,
   setDefaultInput } from '../../store/actions/index';
 
-export class Homepage extends React.Component {
+export class HW3 extends React.Component {
 
   constructor(props) {
     super(props);
@@ -25,7 +25,7 @@ export class Homepage extends React.Component {
 
     if (prevProps.locationData !== locationData) {
       this.props.history.push({
-        pathname: '/current-weather',
+        pathname: '/weather',
         state: {
           locationType: locationType,
           locationData: locationData,
@@ -89,4 +89,4 @@ const set_location = function(dispatch) {
   };
 };
 
-export default connect(get_location, set_location)(Homepage);
+export default connect(get_location, set_location)(HW3);
