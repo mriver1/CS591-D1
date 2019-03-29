@@ -27,12 +27,6 @@ class Weather extends Component {
         { loaded &&
           (
             <div>
-              <div className='Home'>
-                <Link to='/'><button>Home</button></Link>
-              </div>
-              <div >
-                <div >
-                  
                   <div className='Temp'>
                     <p>{Temp} F</p>
                     <p>{ConditionDescription}</p>
